@@ -52,7 +52,7 @@ function callAlertFun(cardCallDetailsHeading, cardCallDetailsNumber, coins) {
 function callHistoryFun(cardCallDetailsHeading, cardCallDetailsNumber) {
   const div = document.createElement("div");
   div.innerHTML = `
-            <div class="flex justify-between items-center my-4">
+            <div class="flex justify-between items-center bg-[#f5fff6] my-4">
             <div>
               <h3 class="text-lg">${cardCallDetailsHeading}</h3>
               <p class="bg-[F2F2F2] text-lg">${cardCallDetailsNumber}</p>
