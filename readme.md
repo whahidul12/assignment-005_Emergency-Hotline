@@ -2,23 +2,23 @@
 
 1. What is the difference between **getElementById, getElementsByClassName, and querySelector / querySelectorAll**?
 
--   **Ans:**
+-   **Ans:** getElementId is used to select a single elemnt. getElementsByCalssName is used when there is many class name and we need list of live html collection (change when DOM change) or select a specific class name. on the other hand querySlector is used when we need a specific element(if it is an ID than it select the ID but if it is a Class Name than it select the first one). and querySelectorAll is used to select all elemnts that match a specific ID or Class Name.
 
 2. How do you **create and insert a new element into the DOM**?
 
--   **Ans:**
+-   **Ans:** use document.createElement("Tag Name"). this return an empty tag element, that we can use and append with other tags by the help of Tag.appendChild("created tag element").
 
 3. What is **Event Bubbling** and how does it work?
 
--   **Ans:**
+-   **Ans:**event bubbling means suppose i have a button inside a div tag, that div taginside a main tag, main tag is inside a body tag. now when i click on that button first the button eventListener will trigger, after than div eventListener will trigger, than main eventListener will trigger, than body eventListener will trigger, lastly document. this behaiver is like a bubble inside a bubble. great for dynamic content.
 
 4. What is **Event Delegation** in JavaScript? Why is it useful?
 
--   **Ans:**
+-   **Ans:**i think it is the opposite of event bubbling. insted of adding multiple eventListeners to the childs, add a single eventListeners to the taget parent elemet and select what to do with child from there by the help of eventListener's funtion. it is very useful because less eventListeners means better performence.
 
 5. What is the difference between **preventDefault() and stopPropagation()** methods?
 
--   **Ans:**
+-   **Ans:**As far as i know preventDefault prevent browser default behaivior, like: form submission, ink navigation etc. but does not affect event bubbling or propagation. and stopPropagation stop event from bubbling up to parent elements, thats it.
 
 ---
 
