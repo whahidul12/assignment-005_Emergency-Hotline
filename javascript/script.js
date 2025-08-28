@@ -4,6 +4,9 @@ const displayHeartCount = document.getElementById("display-heart-count");
 const historyCard = document.getElementById("history-card");
 const historyClearBtn = document.getElementById("history-clear-btn");
 
+const clickCopyBtns = document.getElementsByClassName("click-copy-btn");
+const displayCopyCount = document.getElementById("display-copy-count");
+
 const clickCallBtns = document.getElementsByClassName("click-call-btn");
 const coinForCalls = document.getElementById("coin-for-calls");
 const cardCallDetails = document.getElementsByClassName("card-call-details");
@@ -22,15 +25,15 @@ for (const heartButton of clickHeartBtns) {
 for (const callBtn of clickCallBtns) {
   callBtn.addEventListener("click", () => {
     const cardDetails = callBtn.parentNode.parentNode;
-    const cardCallDetailsHeading = cardDetails.querySelector(".card-call-details-heading").innerText
-    const cardCallDetailsNumber = cardDetails.querySelector(".card-call-details-number").innerText
+    const cardCallDetailsHeading = cardDetails.querySelector(".card-call-details-heading").innerText;
+    const cardCallDetailsNumber = cardDetails.querySelector(".card-call-details-number").innerText;
     let coins = parseInt(coinForCalls.innerText);
 
     if (coins >= 20) {
-      callAlertFun(cardCallDetailsHeading, cardCallDetailsNumber, coins);
-      callHistoryFun(cardCallDetailsHeading, cardCallDetailsNumber);
       coins = coins - 20;
       coinForCalls.innerText = coins;
+      callAlertFun(cardCallDetailsHeading, cardCallDetailsNumber, coins);
+      callHistoryFun(cardCallDetailsHeading, cardCallDetailsNumber);
     } else {
       alert(`❌আপনার পর্যাপ্ত কয়েন নেই! কল করতে কমপক্ষে ২০ টি কয়েন প্রয়োজন!
 
@@ -42,7 +45,7 @@ for (const callBtn of clickCallBtns) {
 function callAlertFun(cardCallDetailsHeading, cardCallDetailsNumber, coins) {
   alert(`☎️ Calling ${cardCallDetailsHeading}  -  ${cardCallDetailsNumber} ...
 
-💰আপনার বর্তমান কয়েন সংখ্যা: ${coins - 20}`)
+💰আপনার বর্তমান কয়েন সংখ্যা: ${coins}`)
 }
 
 
@@ -64,3 +67,24 @@ function callHistoryFun(cardCallDetailsHeading, cardCallDetailsNumber) {
 historyClearBtn.addEventListener("click", () => {
   historyCard.innerHTML = "";
 })
+
+let copyCount = 0;
+for (const copyBtn of clickCopyBtns) {
+  copyBtn.addEventListener("click", () => {
+    const cardDetails = copyBtn.parentNode.parentNode;
+    const cardCallDetailsHeading = cardDetails.querySelector(".card-call-details-heading").innerText;
+    const cardCallDetailsNumber = cardDetails.querySelector(".card-call-details-number").innerText;
+
+    ++copyCount;
+    displayCopyCount.innerText = copyCount;
+
+    navigator.clipboard.writeText(cardCallDetailsNumber)
+      .then(() => {
+        alert(`📋${cardCallDetailsHeading} এর নম্বর কপি হয়েছে: ${cardCallDetailsNumber}`);
+      })
+      .catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+  })
+
+}
