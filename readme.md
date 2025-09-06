@@ -22,7 +22,7 @@
 
 ---
 
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-005
+<!-- ## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-005
 
 ### 📅 Deadline For 60 marks: 29th August, 2025 (11:59 pm ⏱️)
 
@@ -176,4 +176,4 @@ How to get current local time in js
 
 ---
 
-# Let's Code and Achieve your Dream 🎯
+# Let's Code and Achieve your Dream 🎯 -->
